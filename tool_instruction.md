@@ -43,8 +43,8 @@
 ```python
 import os
 from ollama import Client
-# 從環境變數讀取 Ollama 服務地址，避免硬編碼
-ollama_host = os.getenv('OLLAMA_HOST', 'your_ollama_host:port')
+# 從環境變數讀取 Ollama 服務地址
+ollama_host = os.getenv('OLLAMA_HOST')
 client = Client(host=ollama_host)
 ```
 
@@ -81,6 +81,21 @@ for chunk in client.chat(
      "missing_fields": ["workstation_number", ...]
    }
    ```
+
+---
+
+## 環境變數設定
+```bash
+# PostgreSQL DSN
+export INSPECTION_DSN="dbname=test_gear user=<postgres_user> password=<password> host=<host> port=<port>"
+# Ollama 服務地址
+export OLLAMA_HOST="<your_ollama_host>:<port>"
+# MySQL 連線參數
+export MYSQL_HOST="<your_mysql_host>"
+export MYSQL_USER="<your_mysql_user>"
+export MYSQL_PASSWORD="<your_mysql_password>"
+export MYSQL_PORT="<your_mysql_port>"
+```
 
 ---
 

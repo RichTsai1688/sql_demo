@@ -11,6 +11,7 @@
 ├─ field_checker.py         # 欄位解析與完整性檢查模組
 ├─ agent_app.py             # FastAPI 服務主程式：HTTP 接口與 Agent 邏輯
 ├─ client_service.py        # CLI 客戶端服務：呼叫 Agent API
+├─ openai_agent.py          # OpenAI Agents Python 架構 Agent 主程式
 ├─ requirements.txt         # Python 依賴套件清單
 │
 ├─ tool_guide.md            # 使用者工具指南（Memory_database 等工具使用方式）
@@ -59,6 +60,25 @@
 - `tool_guide.md`：工具使用指南
 - `tool_instruction.md`：指令映射與流程說明
 - `planning.md`：專案規劃與時程表
+
+### 7. openai_agent.py
+- 使用 OpenAI Agents Python 架構（`openai-agents`）整合 LLM 與工具，包含：
+  - `SensorUploadTool`: 機台感測資料上傳工具
+  - `TaskSubmitTool`: 使用者文字任務提交工具
+  - `LiteLLM`：包裝 OllamaClient 的輕量級 LLM 後端
+
+## 環境變數設定
+```bash
+# PostgreSQL DSN
+export INSPECTION_DSN="dbname=test_gear user=postgres password=<your_password> host=<your_host> port=<your_port>"
+# Ollama 服務地址
+export OLLAMA_HOST="<your_ollama_host>:<port>"
+# MySQL 連線參數（若使用 MessageDatabase_remote）
+export MYSQL_HOST="<your_mysql_host>"
+export MYSQL_USER="<your_mysql_user>"
+export MYSQL_PASSWORD="<your_mysql_password>"
+export MYSQL_PORT="<your_mysql_port>"
+```
 
 ## 快速啟動
 1. 建立虛擬環境並安裝依賴：

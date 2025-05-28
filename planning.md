@@ -33,7 +33,10 @@ flowchart LR
 
 ### 4.1 InspectionDatabasePostgres 工具
 - 已實作：連線、建表、增查刪功能。
-- 參數：DSN（`dbname=test_gear user=... password=... host=... port=...`）。
+- 參數：透過環境變數 `INSPECTION_DSN` 設定，例如：
+  ```bash
+  export INSPECTION_DSN="dbname=test_gear user=<postgres_user> password=<password> host=<host> port=<port>"
+  ```
 
 ### 4.2 欄位檢查模組
 - `required_fields = ['inspector','inspection_date','inspection_order_number','work_number','workstation_number','part_number','part_name','specification','measurement_data']`
@@ -70,6 +73,19 @@ flowchart LR
 | 部署與維運    | 7    | 容器化、CI/CD、監控                         |
 
 ---
+
+## 環境變數設定
+```bash
+# PostgreSQL DSN
+export INSPECTION_DSN="dbname=test_gear user=<postgres_user> password=<password> host=<host> port=<port>"
+# Ollama 服務地址
+export OLLAMA_HOST="<your_ollama_host>:<port>"
+# MySQL 連線參數（若使用遠端資料庫工具）
+export MYSQL_HOST="<your_mysql_host>"
+export MYSQL_USER="<your_mysql_user>"
+export MYSQL_PASSWORD="<your_mysql_password>"
+export MYSQL_PORT="<your_mysql_port>"
+```
 
 **存檔路徑**：`/data/SQL_demo/planning.md`  
 **更新日期**：2025-05-28
